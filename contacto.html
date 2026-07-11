@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto | Exteman</title>
+<meta name="description" content="Contactá a Exteman: WhatsApp, email o formulario para pedir presupuesto de mantenimiento, reparaciones, instalaciones eléctricas, herrería, obra y climatización.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --concrete:#EAE5DB;
+    --concrete-dark:#DAD3C4;
+    --steel:#0B3F4D;
+    --steel-2:#5E6B73;
+    --ink:#14171A;
+    --amber:#E8A33D;
+    --rust:#B8492E;
+    --line: rgba(20,23,26,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--concrete);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    line-height:1.05;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  .hazard{
+    height:8px;
+    background:repeating-linear-gradient(135deg, var(--amber) 0 18px, var(--steel) 18px 36px);
+  }
+
+  header{
+    background:var(--concrete);
+    border-bottom:1px solid var(--line);
+    position:sticky; top:0; z-index:50;
+  }
+  .header-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px;
+  }
+  .logo{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    letter-spacing:0.06em;
+  }
+  .logo span{color:var(--rust);}
+  nav ul{list-style:none; display:flex; gap:32px; align-items:center;}
+  nav a{
+    font-size:0.85rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--steel);
+    color:var(--concrete);
+    padding:14px 26px;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:0.85rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    border:none;
+    cursor:pointer;
+    transition:background .18s ease, transform .18s ease;
+  }
+  .btn:hover{background:var(--rust); transform:translateY(-2px);}
+  .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:3px solid var(--amber); outline-offset:2px;
+  }
+
+  .page-hero{
+    background:var(--steel);
+    color:var(--concrete);
+    padding:76px 0 64px;
+    position:relative;
+    overflow:hidden;
+  }
+  .page-hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(234,229,219,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(234,229,219,0.045) 1px, transparent 1px);
+    background-size:44px 44px;
+  }
+  .page-hero-inner{position:relative; max-width:640px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:16px;
+    display:flex; align-items:center; gap:10px;
+    color:var(--amber);
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--amber);}
+  .page-hero h1{font-size:clamp(2rem, 5vw, 2.9rem);}
+
+  .contact-section{padding:80px 0 100px;}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:56px;
+    align-items:start;
+  }
+
+  .info-block{
+    background:var(--steel);
+    color:var(--concrete);
+    padding:36px 32px;
+    position:relative;
+  }
+  .info-block::before{
+    content:"";
+    position:absolute; top:14px; left:14px;
+    width:10px; height:10px;
+    border-top:2px solid var(--amber);
+    border-left:2px solid var(--amber);
+    opacity:0.6;
+  }
+  .info-block::after{
+    content:"";
+    position:absolute; bottom:14px; right:14px;
+    width:10px; height:10px;
+    border-bottom:2px solid var(--amber);
+    border-right:2px solid var(--amber);
+    opacity:0.6;
+  }
+  .info-block h3{font-size:1.3rem; margin-bottom:22px;}
+  .info-row{margin-bottom:20px;}
+  .info-row .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--amber);
+    display:block;
+    margin-bottom:4px;
+  }
+  .info-row .value{font-size:0.98rem;}
+  .info-row a.value:hover{color:var(--amber);}
+
+  .whatsapp-btn{
+    margin-top:8px;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    background:#25D366;
+    color:#0b1f14;
+    padding:16px 22px;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:0.95rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    transition:filter .18s ease, transform .18s ease;
+  }
+  .whatsapp-btn:hover{filter:brightness(1.08); transform:translateY(-2px);}
+  .whatsapp-btn svg{width:20px; height:20px; flex-shrink:0;}
+
+  .coverage{
+    margin-top:28px;
+    padding-top:24px;
+    border-top:1px solid rgba(234,229,219,0.18);
+  }
+
+  .form-block{
+    background:var(--concrete-dark);
+    padding:40px 36px;
+    border:1px solid var(--line);
+  }
+  .form-block h3{font-size:1.3rem; margin-bottom:6px;}
+  .form-block .sub{font-size:0.9rem; color:var(--steel-2); margin-bottom:28px;}
+  .form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  .field{margin-bottom:18px;}
+  .field label{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--steel-2);
+    margin-bottom:6px;
+  }
+  .field input, .field textarea{
+    width:100%;
+    background:var(--concrete);
+    border:1px solid rgba(20,23,26,0.25);
+    padding:13px 14px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:0.95rem;
+    color:var(--ink);
+  }
+  .field input:focus, .field textarea:focus{
+    outline:none;
+    border-color:var(--rust);
+  }
+  .field textarea{resize:vertical; min-height:120px;}
+  .submit-row{margin-top:8px;}
+  .form-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--steel-2);
+    margin-top:14px;
+  }
+  #form-status{
+    margin-top:14px;
+    font-size:0.9rem;
+    font-family:'IBM Plex Mono', monospace;
+    display:none;
+  }
+  #form-status.ok{display:block; color:#1a7a3d;}
+  #form-status.err{display:block; color:var(--rust);}
+
+  footer{background:var(--ink); color:rgba(234,229,219,0.7); padding:52px 0 30px;}
+  .footer-inner{
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:20px;
+    padding-bottom:26px;
+    border-bottom:1px solid rgba(234,229,219,0.14);
+    margin-bottom:20px;
+  }
+  .footer-logo{font-family:'Oswald', sans-serif; font-weight:700; font-size:1.3rem; color:var(--concrete); letter-spacing:0.06em;}
+  .footer-logo span{color:var(--amber);}
+  footer .bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+  }
+
+  @media (max-width:900px){
+    .contact-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:560px){
+    .form-row{grid-template-columns:1fr;}
+    .form-block{padding:30px 22px;}
+    .info-block{padding:30px 24px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner wrap">
+    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Exteman" style="height:38px; display:block;"></a>
+    <nav>
+      <ul>
+        <li><a href="index.html#soluciones">Soluciones</a></li>
+        <li><a href="index.html#estandar">Nosotros</a></li>
+        <li><a href="contacto.html" class="btn" style="padding:10px 20px;">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="hazard"></div>
+
+<section class="page-hero">
+  <div class="wrap page-hero-inner">
+    <p class="eyebrow">Contacto</p>
+    <h1>Hablemos de tu próximo proyecto o necesidad</h1>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="wrap contact-grid">
+
+    <div>
+      <div class="info-block">
+        <h3>Datos de contacto</h3>
+        <div class="info-row">
+          <span class="label">Teléfono</span>
+          <a class="value" href="tel:+5491172719310">+54 9 11 7271 9310</a>
+        </div>
+        <div class="info-row">
+          <span class="label">Email</span>
+          <a class="value" href="mailto:extemansoluciones@gmail.com">extemansoluciones@gmail.com</a>
+        </div>
+        <div class="info-row">
+          <span class="label">Horario</span>
+          <span class="value">Lunes a Viernes, 08:00 - 18:00 hs</span>
+        </div>
+
+        <a class="whatsapp-btn" href="https://api.whatsapp.com/send?phone=5491172719310" target="_blank" rel="noopener">
+          <img src="assets/whatsapp-icon.png" alt="" style="width:22px;height:22px;flex-shrink:0;">
+          Escribinos por WhatsApp
+        </a>
+
+        <div class="coverage">
+          <span class="label mono">Zona de cobertura</span>
+          <p class="value">República Argentina.</p>
+          <div style="display:flex; gap:12px; margin-top:16px;">
+            <img src="assets/coverage-1.png" alt="" style="width:56px; height:56px; object-fit:contain; opacity:0.92;">
+            <img src="assets/coverage-2.png" alt="" style="width:56px; height:56px; object-fit:contain; opacity:0.92;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-block">
+      <h3>Contactanos</h3>
+      <p class="sub">Completá el formulario y te respondemos a la brevedad.</p>
+
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI">
+        <input type="hidden" name="subject" value="Nueva consulta desde la web - Exteman">
+        <input type="checkbox" name="botcheck" style="display:none;">
+
+        <div class="form-row">
+          <div class="field">
+            <label for="nombre">Nombre *</label>
+            <input type="text" id="nombre" name="Nombre" required>
+          </div>
+          <div class="field">
+            <label for="apellido">Apellido *</label>
+            <input type="text" id="apellido" name="Apellido" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="Email" required>
+          </div>
+          <div class="field">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="Teléfono">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="empresa">Nombre de la empresa</label>
+          <input type="text" id="empresa" name="Empresa">
+        </div>
+
+        <div class="field">
+          <label for="mensaje">Mensaje *</label>
+          <textarea id="mensaje" name="Mensaje" required></textarea>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn">Pedir presupuesto / realizar consulta</button>
+        </div>
+        <p id="form-status"></p>
+        <p class="form-note">* Campos obligatorios. Tus datos se usan solo para responder tu consulta.</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <span class="footer-logo">EXTE<span>MAN</span></span>
+      <span class="mono" style="font-size:0.8rem;">extemansoluciones@gmail.com · +54 9 11 7271 9310</span>
+    </div>
+    <div class="wrap bottom" style="padding:0;">
+      <span>© 2026 EXTEMAN. Soluciones de mantenimiento a tu medida.</span>
+      <span>Buenos Aires, Argentina</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    status.className = '';
+    status.textContent = 'Enviando...';
+    status.style.display = 'block';
+    try{
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: {'Accept':'application/json'},
+        body: new FormData(form)
+      });
+      const data = await res.json();
+      if(data.success){
+        status.textContent = '¡Gracias! Recibimos tu consulta, te contactaremos a la brevedad.';
+        status.className = 'ok';
+        form.reset();
+      } else {
+        status.textContent = 'No pudimos enviar el formulario. Escribinos directamente a extemansoluciones@gmail.com.';
+        status.className = 'err';
+      }
+    } catch(err){
+      status.textContent = 'No pudimos enviar el formulario. Escribinos directamente a extemansoluciones@gmail.com.';
+      status.className = 'err';
+    }
+  });
+</script>
+
+</body>
+</html>
