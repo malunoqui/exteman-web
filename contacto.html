@@ -5,290 +5,202 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contacto | Exteman</title>
 <meta name="description" content="Contactá a Exteman: WhatsApp, email o formulario para pedir presupuesto de mantenimiento, reparaciones, instalaciones eléctricas, herrería, obra y climatización.">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --concrete:#FFFFFF;
-    --concrete-dark:#EEF1F3;
+    --white:#FFFFFF;
     --steel:#0F4C5C;
+    --navy:#1E3A4C;
+    --fog:#7B8A91;
     --steel-2:#5E6B73;
     --ink:#2D3E50;
     --amber:#F2C94C;
-    --rust:#1E3A4C;
-    --line: rgba(45,62,80,0.14);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--concrete);
+    background:var(--white);
     color:var(--ink);
     font-family:'Inter', sans-serif;
-    line-height:1.5;
+    line-height:1.55;
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3,h4{
     font-family:'Big Shoulders Display', sans-serif;
     text-transform:uppercase;
-    letter-spacing:0.02em;
+    letter-spacing:0.01em;
     line-height:1.05;
+    font-weight:700;
   }
   .mono{font-family:'IBM Plex Mono', monospace;}
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
   .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
-
-  .hazard{
-    height:8px;
-    background:repeating-linear-gradient(135deg, var(--amber) 0 18px, var(--steel) 18px 36px);
-  }
-
-  header{
-    background:var(--concrete);
-    border-bottom:1px solid var(--line);
-    position:sticky; top:0; z-index:50;
-  }
-  .header-inner{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:18px 24px;
-  }
-  .logo{
-    font-family:'Big Shoulders Display', sans-serif;
-    font-weight:700;
-    font-size:1.5rem;
-    letter-spacing:0.06em;
-  }
-  .logo span{color:var(--rust);}
-  nav ul{list-style:none; display:flex; gap:32px; align-items:center;}
-  nav a{
-    font-size:0.85rem;
-    font-weight:600;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-  }
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    background:var(--steel);
-    color:var(--concrete);
-    padding:14px 26px;
-    font-family:'Big Shoulders Display', sans-serif;
-    font-weight:600;
-    font-size:0.85rem;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    border:none;
-    cursor:pointer;
-    transition:background .18s ease, transform .18s ease;
-  }
-  .btn:hover{background:var(--rust); transform:translateY(-2px);}
-  .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
     outline:3px solid var(--amber); outline-offset:2px;
   }
 
-  .page-hero{
-    background:var(--steel);
-    color:var(--concrete);
-    padding:76px 0 64px;
-    position:relative;
-    overflow:hidden;
+  /* Header (idéntico al de inicio) */
+  header{background:var(--white); border-bottom:1px solid rgba(45,62,80,0.1);}
+  .header-inner{
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
+    padding:18px 24px; max-width:1180px; margin:0 auto;
   }
-  .page-hero::before{
-    content:"";
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
-    background-size:44px 44px;
-  }
-  .page-hero-inner{position:relative; max-width:640px;}
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.82rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    margin-bottom:16px;
-    display:flex; align-items:center; gap:10px;
-    color:var(--amber);
-  }
-  .eyebrow::before{content:"";width:26px;height:2px;background:var(--amber);}
-  .page-hero h1{font-size:clamp(2rem, 5vw, 2.9rem);}
+  .logo-link{justify-self:start;}
+  .logo-link img{height:36px;}
+  nav{justify-self:center;}
+  nav ul{list-style:none; display:flex; gap:40px;}
+  nav a{font-size:0.82rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--steel);}
+  nav a:hover{color:var(--amber);}
 
-  .contact-section{padding:80px 0 100px;}
+  /* Sección hero de contacto (fondo fog) */
+  .contact-hero{background:var(--fog); padding:64px 0;}
+  .contact-hero h1{color:var(--navy); font-size:clamp(2rem, 5vw, 2.8rem); max-width:600px; margin-bottom:40px;}
   .contact-grid{
-    display:grid;
-    grid-template-columns:0.85fr 1.15fr;
-    gap:56px;
-    align-items:start;
+    display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;
   }
 
   .info-block{
-    background:var(--steel);
-    color:var(--concrete);
-    padding:36px 32px;
-    position:relative;
+    background:var(--steel); color:var(--white); padding:36px 32px; position:relative;
   }
   .info-block::before{
-    content:"";
-    position:absolute; top:14px; left:14px;
-    width:10px; height:10px;
-    border-top:2px solid var(--amber);
-    border-left:2px solid var(--amber);
-    opacity:0.6;
+    content:""; position:absolute; top:14px; left:14px; width:10px; height:10px;
+    border-top:2px solid var(--amber); border-left:2px solid var(--amber); opacity:0.6;
   }
   .info-block::after{
-    content:"";
-    position:absolute; bottom:14px; right:14px;
-    width:10px; height:10px;
-    border-bottom:2px solid var(--amber);
-    border-right:2px solid var(--amber);
-    opacity:0.6;
+    content:""; position:absolute; bottom:14px; right:14px; width:10px; height:10px;
+    border-bottom:2px solid var(--amber); border-right:2px solid var(--amber); opacity:0.6;
   }
-  .info-block h3{font-size:1.3rem; margin-bottom:22px;}
   .info-row{margin-bottom:20px;}
   .info-row .label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.72rem;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--amber);
-    display:block;
-    margin-bottom:4px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--amber); display:block; margin-bottom:4px;
   }
   .info-row .value{font-size:0.98rem;}
   .info-row a.value:hover{color:var(--amber);}
 
   .whatsapp-btn{
-    margin-top:8px;
-    display:flex; align-items:center; justify-content:center; gap:10px;
-    background:#25D366;
-    color:#0b1f14;
-    padding:16px 22px;
-    font-family:'Big Shoulders Display', sans-serif;
-    font-weight:600;
-    font-size:0.95rem;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
+    margin-top:8px; display:flex; align-items:center; justify-content:center; gap:10px;
+    background:#25D366; color:#0b1f14; padding:16px 22px;
+    font-family:'Big Shoulders Display', sans-serif; font-weight:700; font-size:0.95rem;
+    text-transform:uppercase; letter-spacing:0.06em;
     transition:filter .18s ease, transform .18s ease;
   }
   .whatsapp-btn:hover{filter:brightness(1.08); transform:translateY(-2px);}
-  .whatsapp-btn svg{width:20px; height:20px; flex-shrink:0;}
 
-  .coverage{
-    margin-top:28px;
-    padding-top:24px;
-    border-top:1px solid rgba(255,255,255,0.18);
-  }
+  .coverage{margin-top:28px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.18);}
+  .coverage-photo{margin-top:16px; height:130px; overflow:hidden;}
+  .coverage-photo img{width:100%; height:100%; object-fit:cover;}
 
-  .form-block{
-    background:var(--concrete-dark);
-    padding:40px 36px;
-    border:1px solid var(--line);
-  }
-  .form-block h3{font-size:1.3rem; margin-bottom:6px;}
-  .form-block .sub{font-size:0.9rem; color:var(--steel-2); margin-bottom:28px;}
-  .form-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-  }
+  /* Foto banner de ancho completo */
+  .photo-banner{width:100%; height:340px; overflow:hidden;}
+  .photo-banner img{width:100%; height:100%; object-fit:cover;}
+
+  /* Sección de formulario (fondo steel) */
+  .form-section{background:var(--steel); padding:64px 0 80px;}
+  .form-section h2{color:var(--white); font-size:clamp(2rem, 5vw, 2.8rem); margin-bottom:36px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
   .field{margin-bottom:18px;}
   .field label{
-    display:block;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.72rem;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:var(--steel-2);
-    margin-bottom:6px;
+    display:block; font-size:0.82rem; font-weight:600; color:rgba(255,255,255,0.85); margin-bottom:6px;
   }
   .field input, .field textarea{
-    width:100%;
-    background:var(--concrete);
-    border:1px solid rgba(45,62,80,0.25);
-    padding:13px 14px;
-    font-family:'Inter', sans-serif;
-    font-size:0.95rem;
-    color:var(--ink);
+    width:100%; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.28);
+    padding:13px 14px; font-family:'Inter', sans-serif; font-size:0.95rem; color:var(--white);
   }
-  .field input:focus, .field textarea:focus{
-    outline:none;
-    border-color:var(--rust);
-  }
+  .field input::placeholder, .field textarea::placeholder{color:rgba(255,255,255,0.5);}
+  .field input:focus, .field textarea:focus{outline:none; border-color:var(--amber);}
   .field textarea{resize:vertical; min-height:120px;}
-  .submit-row{margin-top:8px;}
-  .form-note{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.75rem;
-    color:var(--steel-2);
-    margin-top:14px;
+  .submit-btn{
+    display:inline-block; background:var(--amber); color:var(--navy); border:none; cursor:pointer;
+    padding:16px 32px; font-family:'Big Shoulders Display', sans-serif; font-weight:700;
+    font-size:0.9rem; text-transform:uppercase; letter-spacing:0.06em;
+    transition:transform .18s ease, filter .18s ease;
   }
-  #form-status{
-    margin-top:14px;
-    font-size:0.9rem;
-    font-family:'IBM Plex Mono', monospace;
-    display:none;
-  }
-  #form-status.ok{display:block; color:#1a7a3d;}
-  #form-status.err{display:block; color:var(--rust);}
+  .submit-btn:hover{transform:translateY(-2px); filter:brightness(1.08);}
+  .form-note{font-size:0.78rem; color:rgba(255,255,255,0.55); margin-top:14px;}
+  #form-status{margin-top:14px; font-size:0.9rem; font-weight:600; display:none;}
+  #form-status.ok{display:block; color:#8fe0ab;}
+  #form-status.err{display:block; color:#f2a08e;}
 
-  footer{background:var(--ink); color:rgba(255,255,255,0.7); padding:52px 0 30px;}
-  .footer-inner{
-    display:flex; justify-content:space-between; align-items:center;
-    flex-wrap:wrap; gap:20px;
-    padding-bottom:26px;
-    border-bottom:1px solid rgba(255,255,255,0.14);
-    margin-bottom:20px;
-  }
-  .footer-logo{font-family:'Big Shoulders Display', sans-serif; font-weight:700; font-size:1.3rem; color:var(--concrete); letter-spacing:0.06em;}
-  .footer-logo span{color:var(--amber);}
-  footer .bottom{
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
-    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
-  }
+  /* Footer (idéntico al de inicio) */
+  footer{background:var(--white); padding:56px 0 34px; text-align:center;}
+  .footer-logo img{height:44px; margin:0 auto 10px;}
+  .footer-tagline{color:var(--steel-2); font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:32px;}
+  footer hr{border:none; border-top:1px solid rgba(45,62,80,0.14); margin-bottom:22px;}
+  .footer-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:0.82rem; color:var(--steel-2); text-align:left;}
+  .footer-bottom a{color:var(--steel); font-weight:600;}
+  .footer-bottom a:hover{color:var(--amber);}
 
   @media (max-width:900px){
     .contact-grid{grid-template-columns:1fr;}
   }
-  @media (max-width:560px){
+  @media (max-width:600px){
+    .header-inner{grid-template-columns:auto 1fr;}
+    nav{justify-self:end;}
+    nav ul{gap:20px;}
     .form-row{grid-template-columns:1fr;}
-    .form-block{padding:30px 22px;}
-    .info-block{padding:30px 24px;}
+    .photo-banner{height:220px;}
+    .footer-bottom{flex-direction:column; text-align:center;}
   }
+  /* Animaciones de aparición */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+  .reveal-delay-1{transition-delay:.1s;}
+  .reveal-delay-2{transition-delay:.2s;}
+
+  .whatsapp-btn, .submit-btn{position:relative; overflow:hidden;}
+  .whatsapp-btn::before, .submit-btn::before{
+    content:"";
+    position:absolute; top:0; left:-120%;
+    width:60%; height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform:skewX(-20deg);
+    transition:left .5s ease;
+  }
+  .whatsapp-btn:hover::before, .submit-btn:hover::before{left:130%;}
+
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important; scroll-behavior:auto !important;}
+    .reveal{opacity:1 !important; transform:none !important;}
   }
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const els = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in-view'); obs.unobserve(e.target); }
+      });
+    }, {threshold:0.15});
+    els.forEach(el=>obs.observe(el));
+  });
+</script>
 </head>
 <body>
 
 <header>
-  <div class="header-inner wrap">
-    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Exteman" style="height:38px; display:block;"></a>
+  <div class="header-inner">
+    <a href="index.html" class="logo-link"><img src="assets/logo.svg" alt="Exteman"></a>
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="contacto.html" class="btn" style="padding:10px 20px;">Contacto</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
+    <div></div>
   </div>
 </header>
-<div class="hazard"></div>
 
-<section class="page-hero">
-  <div class="wrap page-hero-inner">
-    <p class="eyebrow">Contacto</p>
-    <h1>Hablemos de tu próximo proyecto o necesidad</h1>
-  </div>
-</section>
-
-<section class="contact-section">
-  <div class="wrap contact-grid">
-
-    <div>
-      <div class="info-block">
-        <h3>Datos de contacto</h3>
+<section class="contact-hero">
+  <div class="wrap">
+    <h1 class="reveal">Hablemos de tu próximo proyecto o necesidad</h1>
+    <div class="contact-grid">
+      <div class="info-block reveal reveal-delay-1">
         <div class="info-row">
           <span class="label">Teléfono</span>
           <a class="value" href="tel:+5491172719310">+54 9 11 7271 9310</a>
@@ -309,81 +221,76 @@
 
         <div class="coverage">
           <span class="label mono">Zona de cobertura</span>
-          <p class="value" style="margin-bottom:14px;">República Argentina.</p>
-          <div style="position:relative; overflow:hidden; height:110px;">
-            <img src="assets/coverage-1.png" alt="Cobertura Exteman - Argentina" style="width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(15%);">
-            <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(11,63,77,0.05), rgba(11,63,77,0.55));"></div>
+          <p class="value" style="margin-bottom:0;">República Argentina.</p>
+          <div class="coverage-photo">
+            <img src="assets/coverage-1.png" alt="Cobertura Exteman - Argentina">
           </div>
         </div>
       </div>
+      <div></div>
     </div>
+  </div>
+</section>
 
-    <div class="form-block">
-      <div style="display:flex; gap:20px; align-items:center; margin-bottom:6px;">
-        <img src="assets/coverage-2.png" alt="Técnico de Exteman completando una orden de trabajo" style="width:72px; height:72px; object-fit:cover; flex-shrink:0; border:2px solid var(--steel);">
-        <div>
-          <h3 style="margin-bottom:2px;">Contactanos</h3>
-          <p class="sub" style="margin-bottom:0;">Completá el formulario y te respondemos a la brevedad.</p>
+<div class="photo-banner">
+  <img src="assets/coverage-2.png" alt="Técnico de Exteman completando una orden de trabajo">
+</div>
+
+<section class="form-section">
+  <div class="wrap">
+    <h2 class="reveal">Contactanos</h2>
+
+    <form id="contact-form" class="reveal reveal-delay-1" action="https://api.web3forms.com/submit" method="POST" style="max-width:720px;">
+      <input type="hidden" name="access_key" value="35fa9db3-23d8-4f1d-8f36-604b249ae106">
+      <input type="hidden" name="subject" value="Nueva consulta desde la web - Exteman">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <div class="form-row">
+        <div class="field">
+          <label for="nombre">Nombre *</label>
+          <input type="text" id="nombre" name="Nombre" required>
+        </div>
+        <div class="field">
+          <label for="apellido">Apellido *</label>
+          <input type="text" id="apellido" name="Apellido" required>
         </div>
       </div>
 
-      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="35fa9db3-23d8-4f1d-8f36-604b249ae106">
-        <input type="hidden" name="subject" value="Nueva consulta desde la web - Exteman">
-        <input type="checkbox" name="botcheck" style="display:none;">
+      <div class="field">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="Email" required>
+      </div>
 
-        <div class="form-row">
-          <div class="field">
-            <label for="nombre">Nombre *</label>
-            <input type="text" id="nombre" name="Nombre" required>
-          </div>
-          <div class="field">
-            <label for="apellido">Apellido *</label>
-            <input type="text" id="apellido" name="Apellido" required>
-          </div>
-        </div>
+      <div class="field">
+        <label for="empresa">Nombre de la empresa</label>
+        <input type="text" id="empresa" name="Empresa">
+      </div>
 
-        <div class="form-row">
-          <div class="field">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="Email" required>
-          </div>
-          <div class="field">
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" name="Teléfono">
-          </div>
-        </div>
+      <div class="field">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="Teléfono">
+      </div>
 
-        <div class="field">
-          <label for="empresa">Nombre de la empresa</label>
-          <input type="text" id="empresa" name="Empresa">
-        </div>
+      <div class="field">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="Mensaje" placeholder="Déjenos su inquietud y lo contactaremos a la brevedad"></textarea>
+      </div>
 
-        <div class="field">
-          <label for="mensaje">Mensaje *</label>
-          <textarea id="mensaje" name="Mensaje" required></textarea>
-        </div>
-
-        <div class="submit-row">
-          <button type="submit" class="btn">Pedir presupuesto / realizar consulta</button>
-        </div>
-        <p id="form-status"></p>
-        <p class="form-note">* Campos obligatorios. Tus datos se usan solo para responder tu consulta.</p>
-      </form>
-    </div>
-
+      <button type="submit" class="submit-btn">Pedir presupuesto / realizar consulta</button>
+      <p id="form-status"></p>
+      <p class="form-note">* Campos obligatorios. Tus datos se usan solo para responder tu consulta.</p>
+    </form>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="footer-inner">
-      <span class="footer-logo">EXTE<span>MAN</span></span>
-      <span class="mono" style="font-size:0.8rem;">extemansoluciones@gmail.com · +54 9 11 7271 9310</span>
-    </div>
-    <div class="wrap bottom" style="padding:0;">
+    <div class="footer-logo"><img src="assets/logo.svg" alt="Exteman"></div>
+    <p class="footer-tagline">Excelencia técnica para el mantenimiento</p>
+    <hr>
+    <div class="footer-bottom">
       <span>© 2026 EXTEMAN. Soluciones de mantenimiento a tu medida.</span>
-      <span>Buenos Aires, Argentina</span>
+      <span>Buenos Aires, Argentina | <a href="mailto:extemansoluciones@gmail.com">extemansoluciones@gmail.com</a></span>
     </div>
   </div>
 </footer>

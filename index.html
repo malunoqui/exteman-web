@@ -5,409 +5,446 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Exteman | Soluciones de mantenimiento a tu medida</title>
 <meta name="description" content="Exteman: mantenimiento general, reparaciones, instalaciones eléctricas, herrería, construcción y climatización para empresas, comercios y particulares en Buenos Aires.">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --concrete:#FFFFFF;
-    --concrete-dark:#EEF1F3;
+    --white:#FFFFFF;
+    --offwhite:#F5F7F8;
     --steel:#0F4C5C;
+    --slate:#404C57;
+    --navy:#1E3A4C;
+    --fog:#7B8A91;
+    --mist:#A2ADBA;
     --steel-2:#5E6B73;
     --ink:#2D3E50;
     --amber:#F2C94C;
-    --rust:#1E3A4C;
-    --line: rgba(45,62,80,0.14);
+    --line: rgba(255,255,255,0.16);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--concrete);
+    background:var(--white);
     color:var(--ink);
     font-family:'Inter', sans-serif;
-    line-height:1.5;
+    line-height:1.55;
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3,h4{
     font-family:'Big Shoulders Display', sans-serif;
     text-transform:uppercase;
-    letter-spacing:0.02em;
+    letter-spacing:0.01em;
     line-height:1.05;
+    font-weight:700;
   }
   .mono{font-family:'IBM Plex Mono', monospace;}
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
+  ul{list-style:none;}
   .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
-
-  /* Hazard strip accent */
-  .hazard{
-    height:8px;
-    background:repeating-linear-gradient(135deg, var(--amber) 0 18px, var(--steel) 18px 36px);
-  }
-
-  /* Header */
-  header{
-    background:var(--concrete);
-    border-bottom:1px solid var(--line);
-    position:sticky; top:0; z-index:50;
-  }
-  .header-inner{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:18px 24px;
-  }
-  .logo{
-    font-family:'Big Shoulders Display', sans-serif;
-    font-weight:700;
-    font-size:1.5rem;
-    letter-spacing:0.06em;
-  }
-  .logo span{color:var(--rust);}
-  nav ul{list-style:none; display:flex; gap:32px; align-items:center;}
-  nav a{
-    font-size:0.85rem;
-    font-weight:600;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-  }
-  .contact-strip{
-    display:flex; gap:20px; font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--steel-2);
-  }
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    background:var(--steel);
-    color:var(--concrete);
-    padding:14px 26px;
-    font-family:'Big Shoulders Display', sans-serif;
-    font-weight:600;
-    font-size:0.85rem;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    border:none;
-    cursor:pointer;
-    transition:background .18s ease, transform .18s ease;
-  }
-  .btn:hover{background:var(--rust); transform:translateY(-2px);}
   .btn:focus-visible, a:focus-visible, button:focus-visible{
     outline:3px solid var(--amber); outline-offset:2px;
   }
 
-  /* Hero */
-  .hero{
-    position:relative;
-    padding:110px 0 90px;
-    overflow:hidden;
-    background:var(--steel);
-    color:var(--concrete);
+  /* Header */
+  header{
+    background:var(--white);
+    border-bottom:1px solid rgba(45,62,80,0.1);
   }
-  .hero{
-    background-image:
-      linear-gradient(100deg, rgba(11,63,77,0.94) 0%, rgba(11,63,77,0.86) 42%, rgba(11,63,77,0.55) 75%, rgba(11,63,77,0.3) 100%),
-      url('assets/hero-soldador.jpg');
-    background-size:cover;
-    background-position:center;
+  .header-inner{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    padding:18px 24px;
+    max-width:1180px;
+    margin:0 auto;
   }
-  .hero::before{
-    content:"";
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
-    background-size:44px 44px;
-    pointer-events:none;
-  }
-  .hero-inner{position:relative; max-width:760px;}
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    color:var(--amber);
+  .logo-link{justify-self:start;}
+  .logo-link img{height:36px;}
+  nav{justify-self:center;}
+  nav ul{display:flex; gap:40px;}
+  nav a{
     font-size:0.82rem;
-    letter-spacing:0.14em;
+    font-weight:600;
     text-transform:uppercase;
-    margin-bottom:18px;
-    display:flex; align-items:center; gap:10px;
+    letter-spacing:0.1em;
+    color:var(--steel);
   }
-  .eyebrow::before{content:"";width:26px;height:2px;background:var(--amber);}
-  .hero h1{font-size:clamp(2.6rem, 6vw, 4.4rem); margin-bottom:20px;}
-  .hero p.lead{
-    font-size:1.15rem;
-    color:rgba(255,255,255,0.82);
-    max-width:520px;
-    margin-bottom:34px;
+  nav a:hover{color:var(--amber);}
+
+  /* Hero band (dark teal, continuous through services) */
+  .hero-band{
+    background:var(--steel);
+    padding:72px 0 88px;
   }
-  .hero-points{
-    list-style:none;
-    display:flex; flex-direction:column; gap:10px;
-    margin-bottom:40px;
+  .hero-top{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 56px;
   }
-  .hero-points li{
-    display:flex; align-items:baseline; gap:12px;
+  .hero-top h1{
+    color:var(--white);
+    font-size:clamp(2.8rem, 8vw, 4.6rem);
+    margin-bottom:8px;
+  }
+  .hero-top .subtitle{
+    color:rgba(255,255,255,0.75);
+    font-size:1.05rem;
+    margin-bottom:28px;
+  }
+  .contact-line{
+    display:flex; flex-direction:column; gap:8px;
+    align-items:center;
+    margin-bottom:32px;
+  }
+  .contact-line a{
+    color:var(--white);
     font-size:0.95rem;
-    color:rgba(255,255,255,0.9);
+    font-weight:600;
+    display:inline-flex; align-items:center; gap:8px;
   }
-  .hero-points li::before{
+  .contact-line a:hover{color:var(--amber);}
+  .btn-outline{
+    display:inline-block;
+    border:1.5px solid var(--amber);
+    color:var(--amber);
+    padding:14px 30px;
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    transition:background .18s ease, color .18s ease;
+  }
+  .btn-outline:hover{background:var(--amber); color:var(--navy);}
+
+  .intro-box{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:0;
+    border:1px solid var(--line);
+  }
+  .intro-photo{height:100%; min-height:280px;}
+  .intro-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .intro-text{
+    padding:40px 44px;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .intro-text h2{
+    color:var(--white);
+    font-size:clamp(1.5rem, 3vw, 2.1rem);
+    margin-bottom:22px;
+  }
+  .intro-text h2 .accent{color:var(--amber);}
+  .intro-text ul{display:flex; flex-direction:column; gap:10px;}
+  .intro-text li{
+    color:rgba(255,255,255,0.85);
+    font-size:0.95rem;
+    padding-left:18px;
+    position:relative;
+  }
+  .intro-text li::before{
     content:"";
-    width:8px;height:8px;
+    position:absolute; left:0; top:8px;
+    width:7px; height:7px;
     background:var(--amber);
     transform:rotate(45deg);
-    flex-shrink:0;
   }
-  .hero .btn{background:var(--amber); color:var(--ink);}
-  .hero .btn:hover{background:var(--concrete);}
 
-  /* Services */
-  .services{padding:96px 0;}
-  .section-head{
-    display:flex; justify-content:space-between; align-items:flex-end;
-    gap:24px; margin-bottom:56px; flex-wrap:wrap;
+  /* Services (still on steel bg) */
+  .services{padding:88px 0 0;}
+  .services-title{
+    color:var(--white);
+    text-align:center;
+    font-size:clamp(2.2rem, 5vw, 3.2rem);
+    margin-bottom:48px;
   }
-  .section-head h2{font-size:clamp(1.9rem, 4vw, 2.6rem);}
-  .section-head .eyebrow{color:var(--rust);}
-  .section-head .eyebrow::before{background:var(--rust);}
   .services-grid{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
-    gap:2px;
-    background:var(--line);
-    border:1px solid var(--line);
+    gap:20px;
   }
   .card{
-    background:var(--concrete);
+    background:var(--slate);
     padding:32px 28px;
-    position:relative;
-    transition:background .18s ease;
   }
-  .card:hover{background:var(--concrete-dark);}
-  .card::before{
-    content:"";
-    position:absolute; top:14px; left:14px;
-    width:10px; height:10px;
-    border-top:2px solid var(--steel-2);
-    border-left:2px solid var(--steel-2);
-    opacity:0.35;
-  }
-  .card::after{
-    content:"";
-    position:absolute; bottom:14px; right:14px;
-    width:10px; height:10px;
-    border-bottom:2px solid var(--steel-2);
-    border-right:2px solid var(--steel-2);
-    opacity:0.35;
-  }
-  .card .code{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.78rem;
-    color:var(--rust);
-    letter-spacing:0.06em;
-    display:block;
-    margin-bottom:16px;
-  }
-  .card h3{font-size:1.15rem; margin-bottom:12px; letter-spacing:0.01em;}
-  .card p{font-size:0.92rem; color:var(--steel-2);}
-  .card a.consult{
-    display:inline-block; margin-top:18px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.78rem;
-    font-weight:600;
-    color:var(--ink);
-    border-bottom:1px solid var(--ink);
-    padding-bottom:2px;
-  }
-  .card a.consult:hover{color:var(--rust); border-color:var(--rust);}
-
-  /* Standard section */
-  .standard{
-    background:var(--steel);
-    color:var(--concrete);
-    padding:96px 0;
-  }
-  .standard-grid{
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:64px;
-    align-items:start;
-  }
-  .standard h2{font-size:clamp(1.9rem,4vw,2.6rem); margin-bottom:24px;}
-  .standard p.body{color:rgba(255,255,255,0.82); font-size:1.02rem; max-width:520px;}
-  .standard-list{list-style:none; display:flex; flex-direction:column; gap:0;}
-  .standard-list li{
-    padding:22px 0;
-    border-bottom:1px solid rgba(255,255,255,0.16);
-    display:flex; gap:16px; align-items:flex-start;
-    font-size:0.98rem;
-  }
-  .standard-list li:first-child{border-top:1px solid rgba(255,255,255,0.16);}
-  .standard-list .tag{
+  .card .num{
     font-family:'IBM Plex Mono', monospace;
     color:var(--amber);
-    font-size:0.78rem;
-    flex-shrink:0;
-    padding-top:3px;
+    font-size:0.85rem;
+    display:block;
+    margin-bottom:14px;
   }
+  .card h3{
+    color:var(--white);
+    font-size:1.25rem;
+    margin-bottom:14px;
+  }
+  .card p{
+    color:rgba(255,255,255,0.72);
+    font-size:0.92rem;
+    margin-bottom:22px;
+  }
+  .card-btn{
+    display:inline-block;
+    border:1px solid rgba(255,255,255,0.35);
+    color:var(--white);
+    font-size:0.72rem;
+    font-weight:600;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:10px 16px;
+    transition:border-color .18s ease, color .18s ease;
+  }
+  .card-btn:hover{border-color:var(--amber); color:var(--amber);}
 
-  /* CTA band */
-  .cta-band{
-    background:var(--amber);
-    padding:52px 0;
+  /* Standard split */
+  .standard-split{
+    display:grid;
+    grid-template-columns:1fr 1fr;
   }
-  .cta-inner{
-    display:flex; align-items:center; justify-content:space-between;
-    gap:24px; flex-wrap:wrap;
+  .standard-left{
+    background:var(--navy);
+    padding:80px 48px;
+    display:flex; align-items:center;
   }
-  .cta-inner h3{color:var(--ink); font-size:1.6rem; max-width:520px;}
-  .cta-band .btn{background:var(--ink); color:var(--concrete);}
-  .cta-band .btn:hover{background:var(--steel);}
+  .standard-left h2{
+    color:var(--fog);
+    font-size:clamp(2rem, 4vw, 3rem);
+  }
+  .standard-right{
+    background:var(--fog);
+    padding:80px 48px;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .standard-right p{
+    color:var(--navy);
+    font-size:1rem;
+    margin-bottom:26px;
+    max-width:480px;
+  }
+  .standard-right ul{display:flex; flex-direction:column; gap:12px;}
+  .standard-right li{
+    color:var(--navy);
+    font-weight:600;
+    font-size:0.95rem;
+    padding-left:20px;
+    position:relative;
+  }
+  .standard-right li::before{
+    content:"";
+    position:absolute; left:0; top:8px;
+    width:7px; height:7px;
+    background:var(--navy);
+    transform:rotate(45deg);
+  }
 
   /* Footer */
-  footer{background:var(--ink); color:rgba(255,255,255,0.7); padding:52px 0 30px;}
-  .footer-inner{
-    display:flex; justify-content:space-between; align-items:center;
-    flex-wrap:wrap; gap:20px;
-    padding-bottom:26px;
-    border-bottom:1px solid rgba(255,255,255,0.14);
-    margin-bottom:20px;
+  footer{
+    background:var(--white);
+    padding:56px 0 34px;
+    text-align:center;
   }
-  .footer-logo{font-family:'Big Shoulders Display', sans-serif; font-weight:700; font-size:1.3rem; color:var(--concrete); letter-spacing:0.06em;}
-  .footer-logo span{color:var(--amber);}
-  footer .bottom{
+  .footer-logo img{height:44px; margin:0 auto 10px;}
+  .footer-tagline{
+    color:var(--steel-2);
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:32px;
+  }
+  footer hr{
+    border:none;
+    border-top:1px solid rgba(45,62,80,0.14);
+    margin-bottom:22px;
+  }
+  .footer-bottom{
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
-    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+    font-size:0.82rem;
+    color:var(--steel-2);
+    text-align:left;
   }
+  .footer-bottom a{color:var(--steel); font-weight:600;}
+  .footer-bottom a:hover{color:var(--amber);}
 
-  /* Mobile */
   @media (max-width:900px){
-    .services-grid{grid-template-columns:repeat(2,1fr);}
-    .standard-grid{grid-template-columns:1fr; gap:36px;}
-    .contact-strip{display:none;}
+    .intro-box{grid-template-columns:1fr;}
+    .intro-photo{min-height:220px;}
+    .services-grid{grid-template-columns:1fr 1fr;}
+    .standard-split{grid-template-columns:1fr;}
   }
   @media (max-width:600px){
-    nav ul{gap:18px;}
+    .header-inner{grid-template-columns:auto 1fr; }
+    nav{justify-self:end;}
+    nav ul{gap:20px;}
     .services-grid{grid-template-columns:1fr;}
-    .hero{padding:80px 0 64px;}
-    .section-head{margin-bottom:36px;}
-    .cta-inner{flex-direction:column; align-items:flex-start;}
+    .standard-left, .standard-right{padding:56px 28px;}
+    .footer-bottom{flex-direction:column; text-align:center;}
   }
+  /* Animaciones de aparición */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+  .reveal-delay-1{transition-delay:.08s;}
+  .reveal-delay-2{transition-delay:.16s;}
+  .reveal-delay-3{transition-delay:.24s;}
+  .reveal-delay-4{transition-delay:.32s;}
+  .reveal-delay-5{transition-delay:.4s;}
+
+  /* Botones con brillo animado */
+  .btn-outline, .card-btn{position:relative; overflow:hidden;}
+  .btn-outline::before, .card-btn::before{
+    content:"";
+    position:absolute; top:0; left:-120%;
+    width:60%; height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform:skewX(-20deg);
+    transition:left .5s ease;
+  }
+  .btn-outline:hover::before, .card-btn:hover::before{left:130%;}
+  .btn-outline:hover, .card-btn:hover{transform:translateY(-2px);}
+
+  h1, .services-title, .standard-left h2{transition:transform .3s ease;}
 
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important; scroll-behavior:auto !important;}
+    .reveal{opacity:1 !important; transform:none !important;}
   }
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const els = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in-view'); obs.unobserve(e.target); }
+      });
+    }, {threshold:0.15});
+    els.forEach(el=>obs.observe(el));
+  });
+</script>
 </head>
 <body>
 
 <header>
-  <div class="header-inner wrap">
-    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Exteman" style="height:38px; display:block;"></a>
+  <div class="header-inner">
+    <a href="index.html" class="logo-link"><img src="assets/logo.svg" alt="Exteman"></a>
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="contacto.html" class="btn" style="padding:10px 20px;">Contacto</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
+    <div></div>
   </div>
 </header>
-<div class="hazard"></div>
 
-<section class="hero" id="top">
-  <div class="wrap hero-inner">
-    <p class="eyebrow">Mantenimiento · Buenos Aires</p>
-    <h1>Soluciones de mantenimiento a tu medida</h1>
-    <p class="lead">Soluciones técnicas que mantienen tu negocio en marcha. Un solo proveedor para múltiples servicios, con respuesta rápida y cumplimiento real.</p>
-    <ul class="hero-points">
-      <li>Respuesta rápida y cumplimiento.</li>
-      <li>Un solo proveedor para múltiples servicios.</li>
-      <li>Atención a empresas, comercios y particulares.</li>
-    </ul>
-    <a href="contacto.html" class="btn">Solicitá tu presupuesto</a>
+<section class="hero-band">
+  <div class="wrap">
+    <div class="hero-top">
+      <h1 class="reveal">Exteman</h1>
+      <p class="subtitle reveal reveal-delay-1">Soluciones de mantenimiento a tu medida</p>
+      <div class="contact-line reveal reveal-delay-2">
+        <a href="mailto:extemansoluciones@gmail.com">✉ extemansoluciones@gmail.com</a>
+        <a href="tel:+5491172719310">☎ +54 9 11 7271 9310</a>
+      </div>
+      <a href="contacto.html" class="btn-outline reveal reveal-delay-3">Solicita tu presupuesto</a>
+    </div>
+
+    <div class="intro-box reveal">
+      <div class="intro-photo">
+        <img src="assets/hero-soldador.jpg" alt="Técnico de Exteman trabajando en un túnel">
+      </div>
+      <div class="intro-text">
+        <h2><span class="accent">Soluciones técnicas</span> que mantienen tu negocio en marcha</h2>
+        <ul>
+          <li>Respuesta rápida y cumplimiento.</li>
+          <li>Un solo proveedor para múltiples servicios.</li>
+          <li>Atención a empresas, comercios y particulares.</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="services" id="soluciones">
+<section class="services">
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">Catálogo de servicios</p>
-        <h2>Nuestras soluciones</h2>
-      </div>
-    </div>
+    <h2 class="services-title reveal">Nuestras soluciones</h2>
     <div class="services-grid">
 
-      <div class="card">
-        <span class="code mono">EXT-01 · GENERAL</span>
+      <div class="card reveal ">
+        <span class="num mono">01</span>
         <h3>Mantenimiento general</h3>
         <p>Realizamos tareas para comercios, oficinas, industrias y consorcios. Resolvemos desperfectos y dejamos sus instalaciones en óptimas condiciones.</p>
-        <a href="contacto.html" class="consult">Consultar servicio →</a>
+        <a href="contacto.html" class="card-btn">Consultar servicio</a>
       </div>
 
-      <div class="card">
-        <span class="code mono">EXT-02 · REPARACIÓN</span>
+      <div class="card reveal reveal-delay-1">
+        <span class="num mono">02</span>
         <h3>Reparaciones generales</h3>
         <p>Atendemos reparaciones de albañilería, pintura, herrería y trabajos de mantenimiento edilicio. Soluciones rápidas para que su actividad no se detenga.</p>
-        <a href="contacto.html" class="consult">Consultar servicio →</a>
+        <a href="contacto.html" class="card-btn">Consultar servicio</a>
       </div>
 
-      <div class="card">
-        <span class="code mono">EXT-03 · ELÉCTRICO</span>
+      <div class="card reveal reveal-delay-2">
+        <span class="num mono">03</span>
         <h3>Instalaciones eléctricas</h3>
         <p>Ejecutamos instalaciones, ampliaciones, mantenimiento y reparación de sistemas eléctricos, tableros, iluminación y cableado.</p>
-        <a href="contacto.html" class="consult">Consultar servicio →</a>
+        <a href="contacto.html" class="card-btn">Consultar servicio</a>
       </div>
 
-      <div class="card">
-        <span class="code mono">EXT-04 · HERRERÍA</span>
+      <div class="card reveal reveal-delay-3">
+        <span class="num mono">04</span>
         <h3>Mecanizado y herrería</h3>
         <p>Fabricamos, adaptamos y reparamos estructuras, soportes y piezas metálicas a medida para resolver necesidades operativas y de mantenimiento.</p>
-        <a href="contacto.html" class="consult">Consultar servicio →</a>
+        <a href="contacto.html" class="card-btn">Consultar servicio</a>
       </div>
 
-      <div class="card">
-        <span class="code mono">EXT-05 · OBRA</span>
+      <div class="card reveal reveal-delay-4">
+        <span class="num mono">05</span>
         <h3>Obras y construcción</h3>
         <p>Realizamos divisiones interiores, cielorrasos, revestimientos y reformas: soluciones de todo tipo de construcción, rápidas, limpias y funcionales.</p>
-        <a href="contacto.html" class="consult">Consultar servicio →</a>
+        <a href="contacto.html" class="card-btn">Consultar servicio</a>
       </div>
 
-      <div class="card">
-        <span class="code mono">EXT-06 · CLIMA & GAS</span>
+      <div class="card reveal reveal-delay-5">
+        <span class="num mono">06</span>
         <h3>Climatización y gas</h3>
         <p>Instalación, mantenimiento y reparación de equipos de aire acondicionado, calefacción y sistemas de gas. Soluciones seguras y confiables.</p>
-        <a href="contacto.html" class="consult">Consultar servicio →</a>
+        <a href="contacto.html" class="card-btn">Consultar servicio</a>
       </div>
 
     </div>
   </div>
 </section>
 
-<section class="standard" id="estandar">
-  <div class="wrap standard-grid">
-    <div>
-      <p class="eyebrow">El estándar Exteman</p>
-      <h2>No solo el resultado. También la forma de trabajar.</h2>
-      <p class="body">En EXTEMAN creemos que un buen servicio no se mide solo por el resultado, sino también por la forma de trabajar. Por eso respondemos con rapidez, cumplimos los plazos acordados y realizamos cada tarea con responsabilidad, orden y atención al detalle. Nuestro compromiso es ofrecer soluciones técnicas confiables para empresas, comercios y particulares.</p>
-    </div>
-    <ul class="standard-list">
-      <li><span class="tag mono">01</span> Atención personalizada.</li>
-      <li><span class="tag mono">02</span> Calidad y compromiso en cada trabajo realizado.</li>
-      <li><span class="tag mono">03</span> Un solo proveedor para múltiples soluciones técnicas.</li>
-    </ul>
+<section class="standard-split">
+  <div class="standard-left reveal">
+    <h2>El estándar<br>Exteman</h2>
   </div>
-</section>
-
-<section class="cta-band" >
-  <div class="wrap cta-inner">
-    <h3>¿Necesitás resolver algo en tu negocio o edificio?</h3>
-    <a href="contacto.html" class="btn">Escribinos</a>
+  <div class="standard-right reveal reveal-delay-1">
+    <p>En EXTEMAN creemos que un buen servicio no se mide solo por el resultado, sino también por la forma de trabajar. Por eso respondemos con rapidez, cumplimos los plazos acordados y realizamos cada tarea con responsabilidad, orden y atención al detalle. Nuestro compromiso es ofrecer soluciones técnicas confiables para empresas, comercios y particulares.</p>
+    <ul>
+      <li>Atención personalizada.</li>
+      <li>Calidad y compromiso en cada trabajo realizado.</li>
+      <li>Un solo proveedor para múltiples soluciones técnicas.</li>
+    </ul>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="footer-inner">
-      <span class="footer-logo">EXTE<span>MAN</span></span>
-      <span class="mono" style="font-size:0.8rem;">extemansoluciones@gmail.com · +54 9 11 7271 9310</span>
-    </div>
-    <div class="wrap bottom" style="padding:0;">
+    <div class="footer-logo"><img src="assets/logo.svg" alt="Exteman"></div>
+    <p class="footer-tagline">Excelencia técnica para el mantenimiento</p>
+    <hr>
+    <div class="footer-bottom">
       <span>© 2026 EXTEMAN. Soluciones de mantenimiento a tu medida.</span>
-      <span>Buenos Aires, Argentina</span>
+      <span>Buenos Aires, Argentina | <a href="mailto:extemansoluciones@gmail.com">extemansoluciones@gmail.com</a></span>
     </div>
   </div>
 </footer>
