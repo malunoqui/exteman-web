@@ -8,29 +8,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --concrete:#EAE5DB;
-    --concrete-dark:#DAD3C4;
-    --steel:#0B3F4D;
+    --concrete:#FFFFFF;
+    --concrete-dark:#EEF1F3;
+    --steel:#0F4C5C;
     --steel-2:#5E6B73;
-    --ink:#14171A;
-    --amber:#E8A33D;
-    --rust:#B8492E;
-    --line: rgba(20,23,26,0.14);
+    --ink:#2D3E50;
+    --amber:#F2C94C;
+    --rust:#1E3A4C;
+    --line: rgba(45,62,80,0.14);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     background:var(--concrete);
     color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
+    font-family:'Inter', sans-serif;
     line-height:1.5;
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3,h4{
-    font-family:'Oswald', sans-serif;
+    font-family:'Big Shoulders Display', sans-serif;
     text-transform:uppercase;
     letter-spacing:0.02em;
     line-height:1.05;
@@ -57,7 +57,7 @@
     padding:18px 24px;
   }
   .logo{
-    font-family:'Oswald', sans-serif;
+    font-family:'Big Shoulders Display', sans-serif;
     font-weight:700;
     font-size:1.5rem;
     letter-spacing:0.06em;
@@ -78,7 +78,7 @@
     background:var(--steel);
     color:var(--concrete);
     padding:14px 26px;
-    font-family:'Oswald', sans-serif;
+    font-family:'Big Shoulders Display', sans-serif;
     font-weight:600;
     font-size:0.85rem;
     text-transform:uppercase;
@@ -111,8 +111,8 @@
     content:"";
     position:absolute; inset:0;
     background-image:
-      linear-gradient(rgba(234,229,219,0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(234,229,219,0.045) 1px, transparent 1px);
+      linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
     background-size:44px 44px;
     pointer-events:none;
   }
@@ -130,7 +130,7 @@
   .hero h1{font-size:clamp(2.6rem, 6vw, 4.4rem); margin-bottom:20px;}
   .hero p.lead{
     font-size:1.15rem;
-    color:rgba(234,229,219,0.82);
+    color:rgba(255,255,255,0.82);
     max-width:520px;
     margin-bottom:34px;
   }
@@ -142,7 +142,7 @@
   .hero-points li{
     display:flex; align-items:baseline; gap:12px;
     font-size:0.95rem;
-    color:rgba(234,229,219,0.9);
+    color:rgba(255,255,255,0.9);
   }
   .hero-points li::before{
     content:"";
@@ -227,15 +227,15 @@
     align-items:start;
   }
   .standard h2{font-size:clamp(1.9rem,4vw,2.6rem); margin-bottom:24px;}
-  .standard p.body{color:rgba(234,229,219,0.82); font-size:1.02rem; max-width:520px;}
+  .standard p.body{color:rgba(255,255,255,0.82); font-size:1.02rem; max-width:520px;}
   .standard-list{list-style:none; display:flex; flex-direction:column; gap:0;}
   .standard-list li{
     padding:22px 0;
-    border-bottom:1px solid rgba(234,229,219,0.16);
+    border-bottom:1px solid rgba(255,255,255,0.16);
     display:flex; gap:16px; align-items:flex-start;
     font-size:0.98rem;
   }
-  .standard-list li:first-child{border-top:1px solid rgba(234,229,219,0.16);}
+  .standard-list li:first-child{border-top:1px solid rgba(255,255,255,0.16);}
   .standard-list .tag{
     font-family:'IBM Plex Mono', monospace;
     color:var(--amber);
@@ -258,15 +258,15 @@
   .cta-band .btn:hover{background:var(--steel);}
 
   /* Footer */
-  footer{background:var(--ink); color:rgba(234,229,219,0.7); padding:52px 0 30px;}
+  footer{background:var(--ink); color:rgba(255,255,255,0.7); padding:52px 0 30px;}
   .footer-inner{
     display:flex; justify-content:space-between; align-items:center;
     flex-wrap:wrap; gap:20px;
     padding-bottom:26px;
-    border-bottom:1px solid rgba(234,229,219,0.14);
+    border-bottom:1px solid rgba(255,255,255,0.14);
     margin-bottom:20px;
   }
-  .footer-logo{font-family:'Oswald', sans-serif; font-weight:700; font-size:1.3rem; color:var(--concrete); letter-spacing:0.06em;}
+  .footer-logo{font-family:'Big Shoulders Display', sans-serif; font-weight:700; font-size:1.3rem; color:var(--concrete); letter-spacing:0.06em;}
   .footer-logo span{color:var(--amber);}
   footer .bottom{
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
@@ -299,8 +299,7 @@
     <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Exteman" style="height:38px; display:block;"></a>
     <nav>
       <ul>
-        <li><a href="index.html#soluciones">Soluciones</a></li>
-        <li><a href="index.html#estandar">Nosotros</a></li>
+        <li><a href="index.html">Inicio</a></li>
         <li><a href="contacto.html" class="btn" style="padding:10px 20px;">Contacto</a></li>
       </ul>
     </nav>
