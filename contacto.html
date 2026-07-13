@@ -46,14 +46,17 @@
   nav a{font-size:0.82rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--steel);}
   nav a:hover{color:var(--amber);}
 
+  .photo-banner-top{width:100%; height:clamp(220px, 34vw, 420px); overflow:hidden;}
+  .photo-banner-top img{width:100%; height:100%; object-fit:cover; display:block;}
+
   .contact-hero{background:var(--fog); padding:clamp(40px, 8vw, 64px) 0;}
   .contact-hero h1{color:var(--white); font-size:clamp(2rem, 5vw, 2.8rem); max-width:640px; margin-bottom:clamp(28px,5vw,40px);}
 
   .hero-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,48px); align-items:stretch; margin-bottom:clamp(32px,5vw,44px);}
 
-  .info-block{background:var(--steel); color:var(--white); padding:clamp(28px,5vw,36px) clamp(24px,5vw,32px); position:relative;}
-  .info-block::before{content:""; position:absolute; top:14px; left:14px; width:10px; height:10px; border-top:2px solid var(--amber); border-left:2px solid var(--amber); opacity:0.6;}
-  .info-block::after{content:""; position:absolute; bottom:14px; right:14px; width:10px; height:10px; border-bottom:2px solid var(--amber); border-right:2px solid var(--amber); opacity:0.6;}
+  .info-block, .form-card{background:var(--steel); color:var(--white); padding:clamp(28px,5vw,36px) clamp(24px,5vw,32px); position:relative;}
+  .info-block::before, .form-card::before{content:""; position:absolute; top:14px; left:14px; width:10px; height:10px; border-top:2px solid var(--amber); border-left:2px solid var(--amber); opacity:0.6;}
+  .info-block::after, .form-card::after{content:""; position:absolute; bottom:14px; right:14px; width:10px; height:10px; border-bottom:2px solid var(--amber); border-right:2px solid var(--amber); opacity:0.6;}
   .info-row{margin-bottom:18px;}
   .info-row .label{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:4px;}
   .info-row .value{font-size:0.98rem;}
@@ -76,17 +79,10 @@
 
   .coverage{margin-top:24px; padding-top:22px; border-top:1px solid rgba(255,255,255,0.18);}
 
-  .hero-photo{min-height:260px;}
-  .hero-photo img{width:100%; height:100%; object-fit:cover;}
+  .coverage-photo-wrap{height:clamp(140px, 20vw, 220px); overflow:hidden;}
+  .coverage-photo-wrap img{width:100%; height:100%; object-fit:cover;}
 
-  .coverage-full{margin-bottom:0;}
-  .coverage-full .label{font-family:'IBM Plex Mono', monospace; font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--navy); display:block; margin-bottom:6px;}
-  .coverage-full p{color:var(--white); font-size:1rem; margin-bottom:16px;}
-  .coverage-photo{height:clamp(140px, 20vw, 220px); overflow:hidden;}
-  .coverage-photo img{width:100%; height:100%; object-fit:cover;}
-
-  .form-section{background:var(--steel); padding:clamp(48px, 8vw, 80px) 0 clamp(56px, 9vw, 88px);}
-  .form-section h2{color:var(--white); font-size:clamp(2rem, 5vw, 2.8rem); margin-bottom:36px;}
+  .form-card h2{color:var(--white); font-size:clamp(1.7rem, 4vw, 2.2rem); margin-bottom:24px;}
   .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
   .field{margin-bottom:18px;}
   .field label{display:block; font-size:0.82rem; font-weight:600; color:rgba(255,255,255,0.85); margin-bottom:6px;}
@@ -96,7 +92,7 @@
   }
   .field input::placeholder, .field textarea::placeholder{color:rgba(255,255,255,0.5);}
   .field input:focus, .field textarea:focus{outline:none; border-color:var(--amber);}
-  .field textarea{resize:vertical; min-height:120px;}
+  .field textarea{resize:vertical; min-height:110px;}
   .submit-btn{
     display:inline-block; background:var(--amber); color:var(--navy); border:none; cursor:pointer;
     padding:16px 32px; font-family:'Big Shoulders Display', sans-serif; font-weight:700;
@@ -130,7 +126,6 @@
 
   @media (max-width:768px){
     .hero-grid{grid-template-columns:1fr;}
-    .hero-photo{min-height:220px;}
   }
   @media (max-width:480px){
     .header-inner{grid-template-columns:auto 1fr;}
@@ -172,6 +167,10 @@
   </div>
 </header>
 
+<section class="photo-banner-top">
+  <img src="assets/coverage-2.png" alt="Técnico de Exteman completando una orden de trabajo">
+</section>
+
 <section class="contact-hero">
   <div class="wrap">
     <h1 class="reveal">Hablemos de tu próximo proyecto o necesidad</h1>
@@ -202,61 +201,55 @@
         </div>
       </div>
 
-      <div class="hero-photo reveal reveal-delay-2">
-        <img src="assets/coverage-2.png" alt="Técnico de Exteman completando una orden de trabajo">
+      <div class="form-card reveal reveal-delay-2">
+        <h2>Contactanos</h2>
+
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="35fa9db3-23d8-4f1d-8f36-604b249ae106">
+          <input type="hidden" name="subject" value="Nueva consulta desde la web - Exteman">
+          <input type="checkbox" name="botcheck" style="display:none;">
+
+          <div class="form-row">
+            <div class="field">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="Nombre" required>
+            </div>
+            <div class="field">
+              <label for="apellido">Apellido *</label>
+              <input type="text" id="apellido" name="Apellido" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="Email" required>
+          </div>
+
+          <div class="field">
+            <label for="empresa">Nombre de la empresa</label>
+            <input type="text" id="empresa" name="Empresa">
+          </div>
+
+          <div class="field">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="Teléfono">
+          </div>
+
+          <div class="field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="Mensaje" placeholder="Déjenos su inquietud y lo contactaremos a la brevedad"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Pedir presupuesto / realizar consulta</button>
+          <p id="form-status"></p>
+          <p class="form-note">* Campos obligatorios. Tus datos se usan solo para responder tu consulta.</p>
+        </form>
       </div>
     </div>
 
-    <div class="coverage-photo reveal">
+    <div class="coverage-photo-wrap reveal">
       <img src="assets/coverage-1.png" alt="Cobertura Exteman - Argentina">
     </div>
-  </div>
-</section>
-
-<section class="form-section">
-  <div class="wrap">
-    <h2 class="reveal">Contactanos</h2>
-
-    <form id="contact-form" class="reveal reveal-delay-1" action="https://api.web3forms.com/submit" method="POST" style="max-width:720px;">
-      <input type="hidden" name="access_key" value="35fa9db3-23d8-4f1d-8f36-604b249ae106">
-      <input type="hidden" name="subject" value="Nueva consulta desde la web - Exteman">
-      <input type="checkbox" name="botcheck" style="display:none;">
-
-      <div class="form-row">
-        <div class="field">
-          <label for="nombre">Nombre *</label>
-          <input type="text" id="nombre" name="Nombre" required>
-        </div>
-        <div class="field">
-          <label for="apellido">Apellido *</label>
-          <input type="text" id="apellido" name="Apellido" required>
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="email">Email *</label>
-        <input type="email" id="email" name="Email" required>
-      </div>
-
-      <div class="field">
-        <label for="empresa">Nombre de la empresa</label>
-        <input type="text" id="empresa" name="Empresa">
-      </div>
-
-      <div class="field">
-        <label for="telefono">Teléfono</label>
-        <input type="tel" id="telefono" name="Teléfono">
-      </div>
-
-      <div class="field">
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="Mensaje" placeholder="Déjenos su inquietud y lo contactaremos a la brevedad"></textarea>
-      </div>
-
-      <button type="submit" class="submit-btn">Pedir presupuesto / realizar consulta</button>
-      <p id="form-status"></p>
-      <p class="form-note">* Campos obligatorios. Tus datos se usan solo para responder tu consulta.</p>
-    </form>
   </div>
 </section>
 
