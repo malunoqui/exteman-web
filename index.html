@@ -60,7 +60,7 @@
   nav a:hover{color:var(--amber);}
 
   /* Hero band (dark teal, continúa a través de servicios) */
-  .hero-band{background:var(--steel); padding:clamp(48px, 8vw, 88px) 0 clamp(56px, 9vw, 96px);}
+  .hero-band{background:var(--steel); padding:clamp(48px, 8vw, 88px) 0 clamp(24px, 4vw, 40px);}
   .hero-top{text-align:center; max-width:640px; margin:0 auto clamp(40px, 6vw, 56px);}
   .hero-top h1{color:var(--white); font-size:clamp(2.6rem, 8vw, 4.6rem); margin-bottom:8px;}
   .hero-top .subtitle{color:rgba(255,255,255,0.75); font-size:clamp(0.95rem, 2vw, 1.05rem); margin-bottom:clamp(22px,4vw,28px);}
@@ -97,9 +97,9 @@
   .intro-text li::before{content:""; position:absolute; left:0; top:8px; width:7px; height:7px; background:var(--amber); transform:rotate(45deg);}
 
   /* Servicios (siguen sobre fondo steel) */
-  .services{background:var(--steel); padding:clamp(56px, 8vw, 88px) 0 0;}
+  .services{background:var(--steel); padding:clamp(40px, 6vw, 64px) 0 clamp(48px, 8vw, 72px);}
   .services-title{color:var(--white); text-align:center; font-size:clamp(2.1rem, 5vw, 3.2rem); margin-bottom:clamp(36px,6vw,48px);}
-  .services-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px;}
+  .services-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
   .card{background:var(--slate); padding:clamp(26px,4vw,32px) clamp(22px,4vw,28px);}
   .card .num{font-family:'IBM Plex Mono', monospace; color:var(--amber); font-size:0.85rem; display:block; margin-bottom:14px;}
   .card h3{color:var(--white); font-size:1.2rem; margin-bottom:14px;}
@@ -120,8 +120,8 @@
 
   /* Estándar Exteman: UNA franja fog con caja navy inserta */
   .standard-section{background:var(--fog); padding:clamp(48px,8vw,80px) 0;}
-  .standard-inner{display:grid; grid-template-columns:0.85fr 1.15fr; gap:clamp(28px,5vw,48px); align-items:start;}
-  .standard-box{background:var(--navy); padding:clamp(32px,5vw,48px) clamp(28px,5vw,40px);}
+  .standard-inner{display:grid; grid-template-columns:0.85fr 1.15fr; gap:clamp(28px,5vw,48px); align-items:center;}
+  .standard-box{background:var(--navy); aspect-ratio:1/1; display:flex; align-items:center; padding:clamp(32px,5vw,48px) clamp(28px,5vw,40px);}
   .standard-box h2{color:var(--mist); font-size:clamp(1.9rem, 4vw, 3rem);}
   .standard-text p{color:rgba(255,255,255,0.92); font-size:1rem; margin-bottom:24px; max-width:520px;}
   .standard-text ul{display:flex; flex-direction:column; gap:12px;}
@@ -150,11 +150,13 @@
     .intro-box{grid-template-columns:1fr;}
     .intro-photo{min-height:220px;}
     .standard-inner{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:1fr 1fr;}
   }
   @media (max-width:480px){
     .header-inner{grid-template-columns:auto 1fr;}
     nav{justify-self:end;}
     nav ul{gap:20px;}
+    .services-grid{grid-template-columns:1fr;}
     .footer-bottom{flex-direction:column; text-align:center;}
   }
   @media (prefers-reduced-motion: reduce){

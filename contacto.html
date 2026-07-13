@@ -46,8 +46,8 @@
   nav a{font-size:0.82rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--steel);}
   nav a:hover{color:var(--amber);}
 
-  .photo-banner-top{width:100%; height:clamp(220px, 34vw, 420px); overflow:hidden;}
-  .photo-banner-top img{width:100%; height:100%; object-fit:cover; display:block;}
+  .coverage-photo-wrap{margin-top:4px; height:clamp(100px, 14vw, 150px); overflow:hidden;}
+  .coverage-photo-wrap img{width:100%; height:100%; object-fit:cover;}
 
   .contact-hero{background:var(--fog); padding:clamp(40px, 8vw, 64px) 0;}
   .contact-hero h1{color:var(--white); font-size:clamp(2rem, 5vw, 2.8rem); max-width:640px; margin-bottom:clamp(28px,5vw,40px);}
@@ -78,9 +78,6 @@
   .whatsapp-btn:hover::before{left:130%;}
 
   .coverage{margin-top:24px; padding-top:22px; border-top:1px solid rgba(255,255,255,0.18);}
-
-  .coverage-photo-wrap{height:clamp(140px, 20vw, 220px); overflow:hidden;}
-  .coverage-photo-wrap img{width:100%; height:100%; object-fit:cover;}
 
   .form-card h2{color:var(--white); font-size:clamp(1.7rem, 4vw, 2.2rem); margin-bottom:24px;}
   .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
@@ -167,10 +164,6 @@
   </div>
 </header>
 
-<section class="photo-banner-top">
-  <img src="assets/coverage-2.png" alt="Técnico de Exteman completando una orden de trabajo">
-</section>
-
 <section class="contact-hero">
   <div class="wrap">
     <h1 class="reveal">Hablemos de tu próximo proyecto o necesidad</h1>
@@ -197,7 +190,10 @@
 
         <div class="coverage">
           <span class="label mono">Zona de cobertura</span>
-          <p class="value" style="margin-bottom:0;">República Argentina.</p>
+          <p class="value" style="margin-bottom:12px;">República Argentina.</p>
+          <div class="coverage-photo-wrap">
+            <img src="assets/coverage-1.png" alt="Cobertura Exteman - Argentina">
+          </div>
         </div>
       </div>
 
@@ -245,10 +241,6 @@
           <p class="form-note">* Campos obligatorios. Tus datos se usan solo para responder tu consulta.</p>
         </form>
       </div>
-    </div>
-
-    <div class="coverage-photo-wrap reveal">
-      <img src="assets/coverage-1.png" alt="Cobertura Exteman - Argentina">
     </div>
   </div>
 </section>
