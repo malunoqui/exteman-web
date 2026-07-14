@@ -42,7 +42,7 @@
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
   ul{list-style:none;}
-  .wrap{max-width:min(1320px, 94vw);margin:0 auto;padding:0 clamp(20px, 3vw, 40px);}
+  .wrap{max-width:min(1560px, 92vw);margin:0 auto;padding:0 clamp(20px, 3vw, 48px);}
   .icon{width:1em; height:1em; display:inline-block; vertical-align:-2px;}
   a:focus-visible, button:focus-visible{outline:3px solid var(--amber); outline-offset:2px;}
 
@@ -122,7 +122,7 @@
   .standard-section{background:var(--fog); padding:clamp(48px,8vw,80px) 0;}
   .standard-inner{display:grid; grid-template-columns:0.85fr 1.15fr; gap:clamp(28px,5vw,48px); align-items:center;}
   .standard-box{background:var(--navy); aspect-ratio:1/1; display:flex; align-items:center; padding:clamp(32px,5vw,48px) clamp(28px,5vw,40px);}
-  .standard-box h2{color:var(--mist); font-size:clamp(1.9rem, 4vw, 3rem);}
+  .standard-box h2{color:var(--mist); font-size:clamp(2.4rem, 5.5vw, 3.8rem);}
   .standard-text p{color:rgba(255,255,255,0.92); font-size:1rem; margin-bottom:24px; max-width:520px;}
   .standard-text ul{display:flex; flex-direction:column; gap:12px;}
   .standard-text li{color:#fff; font-weight:600; font-size:0.95rem; padding-left:20px; position:relative;}
@@ -140,6 +140,8 @@
   /* Animaciones de aparición */
   .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
   .reveal.in-view{opacity:1; transform:translateY(0);}
+  .reveal-left{opacity:0; transform:translateX(-60px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal-left.in-view{opacity:1; transform:translateX(0);}
   .reveal-delay-1{transition-delay:.08s;}
   .reveal-delay-2{transition-delay:.16s;}
   .reveal-delay-3{transition-delay:.24s;}
@@ -162,12 +164,13 @@
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important; scroll-behavior:auto !important;}
     .reveal{opacity:1 !important; transform:none !important;}
+    .reveal-left{opacity:1 !important; transform:none !important;}
   }
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', function(){
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const els = document.querySelectorAll('.reveal');
+    const els = document.querySelectorAll('.reveal, .reveal-left');
     const obs = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){ e.target.classList.add('in-view'); obs.unobserve(e.target); }
@@ -279,10 +282,10 @@
 
 <section class="standard-section">
   <div class="wrap standard-inner">
-    <div class="standard-box reveal">
+    <div class="standard-box reveal-left">
       <h2>El estándar<br>Exteman</h2>
     </div>
-    <div class="standard-text reveal reveal-delay-1">
+    <div class="standard-text reveal-left reveal-delay-2">
       <p>En EXTEMAN creemos que un buen servicio no se mide solo por el resultado, sino también por la forma de trabajar. Por eso respondemos con rapidez, cumplimos los plazos acordados y realizamos cada tarea con responsabilidad, orden y atención al detalle. Nuestro compromiso es ofrecer soluciones técnicas confiables para empresas, comercios y particulares.</p>
       <ul>
         <li>Atención personalizada.</li>
